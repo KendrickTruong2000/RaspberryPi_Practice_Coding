@@ -1,0 +1,10 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/kendrick/Documents/Embedded 3/Mock_Test'
+aarch64-none-elf-gcc -Wall -O2 -ffreestanding -nostdinc -nostdlib -nostartfiles  -c boot.S -o boot.o 
+ 
+aarch64-none-elf-gcc -Wall -O2 -ffreestanding -nostdinc -nostdlib -nostartfiles  -c main.c -o main.o 
+aarch64-none-elf-gcc -Wall -O2 -ffreestanding -nostdinc -nostdlib -nostartfiles  -c uart3.c -o uart3.o 
+aarch64-none-elf-ld -nostdlib -nostartfiles boot.o main.o uart3.o  -T link.ld -o kernel8.elf 
+aarch64-none-elf-objcopy -O binary kernel8.elf kernel8.img 
+make: Leaving directory `/Users/kendrick/Documents/Embedded 3/Mock_Test'
+ 
